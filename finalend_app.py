@@ -1437,7 +1437,7 @@ if st.session_state.step >= 2 and st.session_state.df_raw is not None:
     if _tfi and not _tfi.get("skipped"):
         if _tfi.get("dropped", 0) > 0:
             st.warning(
-                f"🔍 **Filter Kelengkapan Trace:** ditemukan **{_tfi['before']} case** → "
+                f"**Filter Kelengkapan Trace:** ditemukan **{_tfi['before']} case** → "
                 f"**{_tfi['dropped']} case di-drop** karena tidak punya "
                 f"*{_tfi['start_act']}* dan/atau *{_tfi['end_act']}* "
                 f"({_tfi['no_start']} tanpa start, {_tfi['no_end']} tanpa end) → "
