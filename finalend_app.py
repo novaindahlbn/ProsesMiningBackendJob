@@ -702,6 +702,13 @@ def compute_transition_delay(df_raw: pd.DataFrame, noise_acts: list = None) -> p
         )
         .reset_index()
     )
+
+    MIN_FREQ = 3
+    n_excluded = int((result["frekuensi"] < MIN_FREQ).sum())
+    result = result[result["frekuensi"] >= MIN_FREQ].copy()
+    result.attrs["n_excluded_low_freq"] = n_excluded
+
+    
     result = result.sort_values("rata_rata", ascending=False).reset_index(drop=True)
     result.index = result.index + 1
     for col in ["rata_rata", "median", "p95"]:
